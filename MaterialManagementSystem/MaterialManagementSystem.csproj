@@ -17,7 +17,7 @@
     <RootNamespace>MaterialManagementSystem</RootNamespace>
     <AssemblyName>MaterialManagementSystem</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -4821,7 +4821,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50273</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50273/</IISUrl>
+          <IISUrl>http://localhost/MaterialManagementSystem</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
