@@ -594,6 +594,7 @@
     <Content Include="assets\admin\pages\scripts\ui-toastr.js" />
     <Content Include="assets\admin\pages\scripts\ui-tree.js" />
     <Content Include="assets\admin\pages\scripts\widgets.js" />
+    <Content Include="assets\CCE_Header_Image %281%29.jpg" />
     <Content Include="assets\CCE_Header_Image.jpg" />
     <Content Include="assets\global\css\components-md.css" />
     <Content Include="assets\global\css\components-rounded.css" />
@@ -4760,6 +4761,7 @@
     <Content Include="assets\global\plugins\typeahead\README.md" />
     <Content Include="assets\global\plugins\uniform\css\uniform.default.scss" />
     <Content Include="assets\global\plugins\uniform\README.md" />
+    <Content Include="assets\cce.hdr" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />

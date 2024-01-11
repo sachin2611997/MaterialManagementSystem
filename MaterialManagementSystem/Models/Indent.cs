@@ -15,6 +15,7 @@ namespace MaterialManagementSystem.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime IndentDate  { get; set; }
         public string Item { get; set; }
+        [DisplayName("Remark")]
         public string Description { get; set; }
         public string ItemCode { get; set; }
        
@@ -23,7 +24,7 @@ namespace MaterialManagementSystem.Models
         public string SourceFund { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime ReceivedDate { get; set; }
+        public DateTime? ReceivedDate { get; set; }
         public string Status { get; set; }
         public string Quantity { get; set; }
         public int IsActive { get; set; }

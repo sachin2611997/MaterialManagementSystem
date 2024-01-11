@@ -100,12 +100,13 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.SourceFund, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                  
-                                    @Html.DisplayName("1340-PRST_") 
+                                    @Html.EditorFor(model => model.SourceFund, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SourceFund, "", new { @class = "text-danger" }) 
                                    
                                 </div>
                             </div>
 
+                          
                             <div class="form-group">
                                 @Html.LabelFor(model => model.ReceivedDate, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">

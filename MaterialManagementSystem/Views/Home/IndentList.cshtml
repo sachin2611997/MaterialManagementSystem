@@ -52,24 +52,26 @@ License: You must have a valid license purchased only from themeforest(the above
     <style>
        @@media print 
 {
-           .portlet-title {
-     background-color:#578ebe !important;
-     font-weight:bold;
-     border:ridge;
-     
-   }
-           .caption{
-               color:aqua;
-           }
            
-    .not-printable, .not-printable *
+         html{
+             zoom:100%;
+         }  
+
+    .portlet-title {
+     background-color:#578ebe !important;
+     
+     font-weight:bold;
+     border:ridge;   
+   }
+    
+     .not-printable, .not-printable *
     {
         display: none !important;
     }
        
 }
         @@page {
-     size: A4;
+     
  }
     </style>
     
@@ -105,8 +107,10 @@ License: You must have a valid license purchased only from themeforest(the above
 
                 <div class="col-md-10" >
 
-                    <img src="~/assets/CCE_Header_Image.jpg" style="width:100%" vertical-align:top" />
+                    <img src="~/assets/CCE_Header_Image (1).jpg" style="max-width:100%;min-width:100%"  vertical-align:top" />
                 </div>
+
+               
                 
                
                     <div style="float:right;position:fixed;right:0;display:block;min-width:240px" class="sidenav not-printable">
@@ -161,7 +165,7 @@ License: You must have a valid license purchased only from themeforest(the above
                
                  <br /><br />
                 
-                    <div class="col-md-10">
+                    <div class="col-md-10" >
                         <!-- BEGIN EXAMPLE TABLE PORTLET-->
                         <div class="portlet box grey-cascade">
                             <div class="portlet-title">
@@ -198,17 +202,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                   
                                     <thead>
                                        
-                                        <tr>    
+                                        <tr style="text-align:center">    
                                           
                                             <th>
                                                 @Html.DisplayNameFor(model => model.IndentDate)
+                                               
                                             </th>
-                                            <th>
+                                            <th style="text-align:center">
                                                 @Html.DisplayNameFor(model => model.Item)
+                                               
+                                               
                                             </th>
-                                            <th>
+
+                                            @*<th>
                                                 @Html.DisplayNameFor(model => model.Description)
-                                            </th>
+                                            </th>*@
                                             @*<th>
                                                 @Html.DisplayNameFor(model => model.ItemCode)
                                             </th>*@
@@ -237,38 +245,71 @@ License: You must have a valid license purchased only from themeforest(the above
                                     @foreach (var item in Model)
                                     {
                                         <tbody style="white-space:nowrap">
+                                           
                                             <tr>
+                                                
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.IndentDate)
                                                 </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Item)
-                                                </td>
-                                                <td>
+                                               
+                                                 <td>
+                                                  
+                                                        @*@Html.DisplayFor(modelItem => item.Item)*@
+                                                 <ul>
+                                                     <li>
+                                                         @Html.Raw(item.Item.Replace(",", "<br><li>"))
+                                                     </li>
+                                                 </ul>   
+                                                  
+                                                         
+
+
+                                                  </td >
+                                                @*<td>
                                                     @Html.DisplayFor(modelItem => item.Description)
-                                                </td>
+                                                </td>*@
                                                 @*<td>
                                                     @Html.DisplayFor(modelItem => item.ItemCode)
                                                 </td>*@
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.IndentNo)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.Quantity)
-                                                </td>
+                                                    <td >
+                                                        @Html.DisplayFor(modelItem => item.IndentNo)
+                                                    </td >
+
+
+                                                
+                                                    <td style="text-align:center">
+                                                        @Html.Raw(item.Quantity.Replace(",", "<br>"))
+
+                                                        @*<ul>
+                <li>
+                    @Html.Raw(item.Quantity.Replace(",", "<br><li>"))
+                 </li>
+                </ul>*@
+
+                                                    </td>
+                                              
                                                 @*<td>
                                                     @Html.DisplayFor(modelItem => item.SourceFund)
                                                 </td>*@
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.ReceivedDate)
-                                                </td>
-                                                <td>
-                                                    @if (item.Status == "Done")
-                                                    {
+                                                @if (item.ReceivedDate==null)
+	{
+		 <td><B style="color:red">Not RECEIVE</B></td>          }
+                                                else
+                                                {
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.ReceivedDate)
+                                                    </td>
+                                                }
+                                                   
+
+
+                                                    <td >
+                                                        @if (item.Status == "Done")
+                                                        {
                                                         <span class="label label-sm label-success" style="font-size:14px">
                                                             Done
                                                         </span>
-                                                    }
+                                                        }
                                                     @if (item.Status == "Pending")
                                                     {
                                                         <span class="label label-sm label-info" style="font-size:14px">
@@ -284,25 +325,27 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                                     }
                                                 </td>
-                                               
+
                                                 @*<td>
                                                     @Html.DisplayFor(modelItem => item.IsActive)
                                                 </td>*@
 
-                                               
+
 
                                                 <td class="not-printable">
 
 
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn default btn-xs  fa fa-pencil purple-stripe" }) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn default btn-xs fa fa-gear yellow-stripe" })  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                   
+                                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn default btn-xs  fa fa-pencil purple-stripe" }) 
+                                                    @Html.ActionLink("View", "Details", new { id = item.Id }, new { @class = "btn default btn-xs fa fa-gear yellow-stripe" }) 
                                                     @*<button class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> Reset</button>*@
                                                     @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn default btn-xs  fa fa-trash-o red-stripe", onclick = "return confirm('Are you sure you want to delete requisition: " + item.IndentNo + "');" })
                                                 </td>
                                                 </tr>
+
 </tbody>
-                                    }
+                                        }
+                                    
                                    
                                 </table>
                             </div>
@@ -379,8 +422,7 @@ Demo.init(); // init demo features  // set current page
    ComponentsKnobDials.init();
 });
     </script>
- 
-  
+    
     
 </body>
 <!-- END BODY -->
