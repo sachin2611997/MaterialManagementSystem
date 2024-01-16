@@ -10,7 +10,7 @@
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8" />
-    <title>Requisition | Details</title>
+    <title>Details | Indent</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -91,7 +91,12 @@
                     <div class="col-md-7 value">
                         <dl>
                             <dd>
-                                @Html.DisplayFor(model => model.Item)
+                                @*@Html.DisplayFor(model => model.Item)*@
+                                <ol>
+                                    <li>
+                                        @Html.Raw(Model.Item.Replace(",", "<br><li>"))
+                                    </li>
+                                </ol>
                             </dd>
                         </dl>
                     </div>
@@ -171,7 +176,13 @@
                     <div class="col-md-7 value">
                         <dl>
                             <dd>
-                                @Html.DisplayFor(model => model.Quantity)
+                                <ul>
+                                    <li>
+                                        @Html.Raw(Model.Quantity.Replace(",", "<br><li>"))
+                                    </li>
+                                </ul>
+                                @*@Html.DisplayFor(model => model.Quantity)*@
+                               
                             </dd>
                         </dl>
                     </div>
@@ -234,7 +245,14 @@
             </div>
 
 
-
+            <div class="page-footer">
+                <div class="page-footer-inner">
+                    2024 © Division of Cancer Care,Hospital Cancer Registries & Survival Studies, CCE.
+                </div>
+                <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                </div>
+            </div>
 
 
         </div>
@@ -265,6 +283,7 @@
             <b>  @Html.ActionLink("Back to List", "IndentList")</b>
 
         </div>
+
     </div>
 
 
